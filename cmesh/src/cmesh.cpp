@@ -1,4 +1,4 @@
-#include "cmesh.h"
+#include "cmesh/vsgf_loader.h"
 
 #include <cmath>
 #include <cfloat>

@@ -2,13 +2,10 @@
 // Created by frol on 23.11.19. //
 //////////////////////////////////
 
-#ifndef CMESH_GEOM_H
-#define CMESH_GEOM_H
+#ifndef CMESH_SIMPLE_MESH_H
+#define CMESH_SIMPLE_MESH_H
 
 #include <vector>
-#include <stdexcept>
-#include <sstream>
-#include <memory>
 #include <cassert>
 
 #include "LiteMath.h"
@@ -38,8 +35,8 @@ namespace cmesh
       vTang4f.resize(a_vertNum);
       vTexCoord2f.resize(a_vertNum);
       indices.resize(a_indNum);
-      matIndices.resize(a_indNum/3); 
-      assert(a_indNum%3 == 0); // PLEASE NOTE THAT CURRENT IMPLEMENTATION ASSUME ONLY TRIANGLE MESHES! 
+      matIndices.resize(a_indNum / POINTS_IN_TRIANGLE);
+      assert(a_indNum % POINTS_IN_TRIANGLE == 0); // PLEASE NOTE THAT CURRENT IMPLEMENTATION ASSUME ONLY TRIANGLE MESHES! 
     };
 
     inline size_t SizeInBytes() const
@@ -69,18 +66,8 @@ namespace cmesh
     std::vector<unsigned int>                 matIndices;  // size = 1*TrianglesNum()
   };
 
-#if defined(__ANDROID__)
-  SimpleMesh LoadMeshFromVSGF(AAssetManager* mgr, const char* a_fileName);
-#else
-  SimpleMesh LoadMeshFromVSGF(const char* a_fileName);
-#endif
-  void       SaveMeshToVSGF  (const char* a_fileName, const SimpleMesh& a_mesh);
-  SimpleMesh LoadMeshViaAssimp(const char* a_fileName);
-
-  SimpleMesh CreateQuad(const int a_sizeX, const int a_sizeY, const float a_size);
-
   void WeldVertices(SimpleMesh& mesh, int indexNum);
 };
 
 
-#endif // CMESH_GEOM_H
+#endif // CMESH_SIMPLE_MESH_H
