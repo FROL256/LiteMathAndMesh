@@ -27,6 +27,12 @@
     <ClCompile Include="tests\tests_vmatrix4.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="cmesh\src\cmesh.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="cmesh\src\cmesh_weld.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\vfloat4_x64.h">
@@ -41,11 +47,11 @@
     <ClInclude Include="include\vfloat4.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="include\litemath.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="include\LiteMath.h">
       <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="include\lite_math.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
